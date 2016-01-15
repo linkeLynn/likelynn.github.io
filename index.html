@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="shortcut icon" href="images/brand_logo.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/tt.css"/>
+</head>
+<body>
+    <div id="login">
+        <form action="#" method="post">
+            <ul>
+                <li class="input-group">
+                    <label class="input-group-addon iconfont"  for="username" id="basic-addon1">&#xe603;</label>
+                    <input type="text" class="form-control" id="username"  placeholder="Username" maxlength="16" aria-describedby="basic-addon1">
+                </li>
+                <li class="input-group">
+                    <label class="input-group-addon iconfont"  for="password" id="basic-addon2">&#xe657;</label>
+                    <input type="password" class="form-control" id="password"  placeholder="password" maxlength="24" aria-describedby="basic-addon2">
+                </li>
+                <li>
+                    <button type="submit" id="tijiao">登录</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+<div id="shadow">
+</div>
+<div id="bm">
+
+</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="http://api.map.baidu.com/api?v=1.5&ak=Vsd7DeriXaz9PV3jzOHGNUn6"></script>
+
+<script>
+
+
+    var username=document.getElementById('username');
+    var psd=document.getElementById('password');
+//    $('#username').focus();
+    $('#username,#password').on('keyup blur',function(e){
+
+    });
+    $('button').click(function(e){
+        e.preventDefault();
+        window.location.href='./page/maintenance.html';
+    });
+
+
+</script>
+</html>

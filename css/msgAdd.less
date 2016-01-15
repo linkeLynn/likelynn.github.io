@@ -1,0 +1,50 @@
+@logoBgColor:#D94038;
+#section{
+//  width:100%;
+  margin: 25px;
+  min-height: 400px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+//  margin: 20px;
+  padding:20px 50px;
+  background-color: #fff;
+  .form-horizontal{
+    margin-top: 30px;
+    .form-group{
+      margin-top:25px;
+      &:nth-child(2){
+        height:150px;
+        div{
+          height:100%;
+        }
+        textarea{
+          height:100%;
+        }
+      }
+      &:last-child{
+        >div{
+          text-align:center;
+          >button{
+            min-width:180px;
+            margin-right: 30px;
+            margin-top: 25px;
+            color:#fff;
+            padding: 10px 20px;
+            &:first-child{
+              background-color: #5e5e5e;
+            }
+            &:last-child{
+              background-color: @logoBgColor;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

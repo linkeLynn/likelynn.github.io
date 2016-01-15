@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>用户查询</title>
+    <link rel="shortcut icon" href="../images/brand_logo.png">
+    <!--  Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/all.css"/>
+    <link rel="stylesheet" href="../css/userQuery.css"/>
+</head>
+<body>
+<div id="main">
+    <div class="container-fluid">
+        <div class="nav-header-border">
+            <ul class="nav-header">
+                <li id="brand-name">
+                    成都华晨宝马4S店
+                </li>
+                <li id="change-password">
+                    <a href="changePassword.html">修改密码</a>
+                </li>
+                <li id="logout">
+                    <a href="../index.html">退出系统</a>
+                </li>
+            </ul>
+        </div>
+        <div id="section">
+            <div class="form-inline">
+                <div class="form-group ">
+                    <label for="username">车主姓名</label>
+                    <input type="text" class="form-control" id="username"/>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">电话号码</label>
+                    <input type="text" class="form-control" id="phoneNumber"/>
+                </div>
+                <div class="form-group">
+                    <label for="carNumber">车牌号</label>
+                    <input type="text" class="form-control" id="carNumber"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">查询</button>
+                </div>
+            </div>
+            <div id="table-content">
+                <table class="table table-striped table-hover" >
+                    <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>电话</th>
+                        <th>车牌号</th>
+                        <th>车辆品牌</th>
+                        <th>车牌号</th>
+                        <th>车牌号</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="paging">
+                <nav class="text-center"> <!--分页-->
+                    <ul class="pagination pagination-sm" id="pagination">
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="aside-left">
+    <ul>
+        <li class="logo"></li>
+        <li class="" id="maintenance"><a href="maintenance.html">保养提醒</a></li>
+        <li class="" id="msg"><a href="msg.html">信息推送</a></li>
+        <li class="active" id="user">查询用户</li>
+    </ul>
+</div>
+<div class="modal fade bs-example-modal-lg" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                </button>
+                <!--<h4 class="modal-title">Modal title</h4>-->
+            </div>
+            <div class="modal-body">
+                <ul class="detailsBox list-unstyled text-center">
+                    <li>
+                        <img src="../images/name.png" alt=""/>
+                        <br/>
+                        <span>222</span>
+                    </li>
+                    <li>
+                        <img src="../images/phoneNumber.png" alt=""/>
+                        <br/>
+                        <span>222</span>
+                    </li>
+                    <li>
+                        <img src="../images/carNumber.png" alt=""/>
+                        <br/>
+                        <span>222</span>
+                    </li>
+                    <li>
+                        <img src="../images/carVIN.png" alt=""/>
+                        <br/>
+                        <span>222</span>
+                    </li>
+                    <li>
+                        <img src="../images/carBrand.png" alt=""/>
+                        <br/>
+                        <span>222</span>
+                    </li>
+                    <li>
+                        <img src="../images/name.png" alt=""/>
+                        <br/>
+                        <span>222</span>
+                    </li>
+                </ul>
+                <ul class="detailsBox list-unstyled text-center">
+                    <li>
+                        <img src="../images/name.png" alt=""/>
+                        <br/>
+                        <span>222</span>
+                    </li>
+                    <li>
+                        <img src="../images/phoneNumber.png" alt=""/>
+                        <br/>
+                        <span>222</span>
+                    </li>
+                    <li>
+                        <img src="../images/carNumber.png" alt=""/>
+                        <br/>
+                        <span>222</span>
+                    </li>
+                    <li>
+                        <img src="../images/carVIN.png" alt=""/>
+                        <br/>
+                        <span>222</span>
+                    </li>
+                    <li>
+                        <img src="../images/carBrand.png" alt=""/>
+                        <br/>
+                       <span>222</span>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/laydate.js"></script> <!--日期选择插件 -->
+<script src="../js/jqpaginator.js"></script> <!--分页插件-->
+<script>
+    laydate({
+        elem: '#username',
+        max: laydate.now()
+    });
+
+    $('#pagination').jqPaginator({
+        totalPages:80,
+        visiblePages: 10,
+        currentPage: 1,
+        onPageChange: function (num, type) {
+            if(type=='init'){
+                $('#aside-left').height($('#main').outerHeight(true));
+                return false;
+            }
+        }
+    });
+    $('#table-content .table tbody').on('click','tr',function(){
+        $('#myModal').modal({
+            keyboard: true
+        })
+    });
+    for(var i=0;i<5;i++){
+        var $tr=$('#table-content table tbody tr').first().clone();
+        $tr.appendTo($('#table-content table tbody'));
+    }
+
+</script>
+</html>

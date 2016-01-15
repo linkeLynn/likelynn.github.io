@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input file="file" accept="image/*;capture=camera">
+</body>
+<script>
+//    var a={id:"a1",name:"aaa",child:[]};
+    var a={id:"a1",name:"aaa",child:[{id:"a21",name:"aaa21",child:[{id:"a31",name:"aaa31",child:[{id:"a41",name:"aaa41",child:[]}]}]},{id:"a22",name:"aaa22",child:[{id:"a32",name:"aaa32",child:[]}]}]};
+    ~function(parentNode,obj){
+        var div=document.createElement("div");
+        div.id=obj.id;
+        parentNode.appendChild(div);
+        if(obj.child.length>0){
+            for(var i=0;i<obj.child.length;i++){
+//                ab(div,obj.child[i]);
+                arguments.callee(div,obj.child[i])
+            }
+        }
+    }(document.body,a)
+
+
+</script>
+</html>

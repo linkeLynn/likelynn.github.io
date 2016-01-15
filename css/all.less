@@ -1,0 +1,223 @@
+@font-face {font-family: 'iconfont';
+  src: url('../fonts/login/iconfont.eot'); /* IE9*/
+  src: url('../fonts/login/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/login/iconfont.woff') format('woff'), /* chrome、firefox */
+  url('../fonts/login/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('../fonts/login/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+html{
+  height:100%;
+  font-family:"sans-serif","MicroSoft YaHei";
+  body{
+    height: 100%;
+    min-width:710px;
+    min-height: 640px;
+    font-family:"sans-serif","MicroSoft YaHei";
+  }
+}
+@logoBgColor:#D94038;
+@nav-height:110px;
+#main{
+  width: 100%;
+  min-height:100%;
+  box-sizing: border-box;
+  background-color: #ECEDF1;
+  float:left;
+  >.container-fluid{
+    margin-left: @nav-height;
+    padding: 0;
+    .nav-header-border{
+      background-color:@headerBgColor;
+      border-bottom:1px solid #B0B1B5;
+      overflow: hidden;
+      //    margin-bottom: 10px;
+    }
+  }
+}
+@headerBgColor:#FCFCFC;
+.nav-header{  //顶部导航
+  @fontColor:#929292;
+  //  width:600px;
+  clear: both;
+  height:@nav-height;
+  margin: 0 30px;
+  padding: 0;
+  border:none;
+  background-color:@headerBgColor;
+  list-style: none;
+  float:right;
+  position: relative;
+  &:before{
+    content: '';
+    width:@nav-height;
+    height:@nav-height;
+    display:inline-block;
+    background:  url('../images/brand_logo.png') no-repeat right center;
+    background-size: 40px;
+    position: absolute;
+    left:-@nav-height+10px;
+    top:0;
+  }
+  >li{
+    font-weight: normal;
+    font-size: 16px;
+    color:@fontColor;
+    text-align:center;
+    width:180px;
+    white-space: nowrap;
+    margin: 35px 0;
+    padding: 10px 20px;
+    float: left;
+    cursor:default;
+    >a{
+      display: block;
+      width: 100%;
+      height: inherit;
+      text-decoration:none;
+      color:inherit;
+      &:hover{
+        color: #3a3a3a;
+        cursor:pointer;
+      }
+    }
+
+    &#brand-name{
+
+    }
+    &#change-password{
+      border-left:1px dashed @fontColor;
+      border-right:1px dashed @fontColor;
+      background: url('../images/changePSD.png') no-repeat 30px center;
+    }
+    &#logout{
+      background: url('../images/loginout.png') no-repeat 30px center;
+    }
+  }
+}
+
+
+#aside-left{  //左侧边栏导航
+  @bgColor:#2F3A4C;
+  @bgHoverColor:#263143;
+  width:@nav-height;
+//    height: 100%;
+  margin-left: -100%;
+  float:left;
+  background-color: @bgColor;
+  >ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align:center;
+    li{
+      width: @nav-height;
+      height:@nav-height;
+      line-height: @nav-height+50px;
+      color:#aaa;
+      position: relative;
+      >a{
+        display:block;
+        width: inherit;
+        height: inherit;
+        text-decoration:none;
+        color:inherit;
+      }
+      &+li:after{
+        content:'';
+        width: @nav-height;
+        height:2px;
+        background: linear-gradient(#020211,#637186);
+        background: -webkit-linear-gradient(#020211,#637186);
+        background: -moz-linear-gradient(#020211,#637186);
+        background: -ms-gradient(#020211,#637186);
+        background: -o-gradient(#020211,#637186);
+        position: absolute;
+        bottom:0;
+        left: 0;
+      }
+      &+li{
+        height:( @nav-height)-5px;
+        &:hover{
+          cursor:pointer;
+          background-color: @bgHoverColor;
+        }
+        &.active{
+          background-color: #1f2a3b;
+        }
+      }
+
+      &.logo{
+        background:@logoBgColor url('../images/logo.png') no-repeat center;
+        //        background-size: 85px auto;
+      }
+    }
+  }
+  #maintenance{
+    background-image: url('../images/bell.png');
+    background-repeat: no-repeat ;
+    background-position: center 30% ;
+    background-size: 40px;
+  }
+  #msg{
+    background-image: url('../images/email.png') ;
+    background-repeat: no-repeat ;
+    background-position: center 30% ;
+    background-size: 40px;
+  }
+  #user{
+    background-image: url('../images/user.png');
+    background-repeat: no-repeat ;
+    background-position: center 30% ;
+    background-size: 40px;
+  }
+}
+//-----------------------------
+#paging{
+
+  background-color: #fcfcfc;
+  @pageFontColor:#393939;
+  @pageBgColor:#fff;
+  @pageBorderColor:#ddd;
+  @pageFontColorAc:#fff;
+  @pageBgColorAc:#D94239;
+  @pageBorderColorAc:#B21D13;
+  .pagination {
+    &>li{
+      & > a,
+      & > span {
+        //        cursor: pointer;
+        margin-left: 7px;
+        color: @pageFontColor;
+        background-color:@pageBgColor;
+        border: 1px solid @pageBorderColor;
+      }
+      & > a:hover,
+      & > span:hover,
+      & > a:focus,
+      & > span:focus {
+        color: @pageFontColor;
+        background-color:#eee;
+        border-color: @pageBorderColor;
+      }
+    }
+    &>.active{
+      &>a,&>span,&>a:hover,&>span:hover,&>a:focus,&> span:focus{
+        color: @pageFontColorAc;
+        background-color:  @pageBgColorAc;
+        border-color: @pageBorderColorAc;
+      }
+    }
+  }
+}
+.modal-backdrop.in {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}

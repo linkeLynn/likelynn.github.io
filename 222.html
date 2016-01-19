@@ -85,6 +85,7 @@
     <div class="grid-cell" id="grid-cell-3-3"></div>
 
 </section>
+
 </body>
 <script src="js/jquery.min.js"></script>
 <script>
@@ -132,9 +133,9 @@
     }
     function nomove(borad){
         if(canMoveDown(borad)||
-        canMoveLeft(borad)||
-        canMoveRight(borad)||
-        canMoveUp(borad)){
+                canMoveLeft(borad)||
+                canMoveRight(borad)||
+                canMoveUp(borad)){
             return false;
         }
         return true;
@@ -223,7 +224,7 @@
         },50)
     }
     function showMoveAnimation(fromx,fromy,tox,toy){
-            var numbercell=$('#number-cell-'+fromx+'-'+fromy);
+        var numbercell=$('#number-cell-'+fromx+'-'+fromy);
         numbercell.animate({
             'top':getPosTop(tox,toy),
             'left':getPosLeft(tox,toy)
@@ -232,6 +233,8 @@
     function updateScore(sco){
         $('#score').text(sco)
     }
+
+
 </script>
 <script src="2048.js"></script>
 </html>

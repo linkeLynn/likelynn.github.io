@@ -118,11 +118,11 @@ function createNewNumber(){
 }
 $(document).keydown(function(e){
     if(!keyTime){return}
-    keyTime=false;
     var ev=e||window.event;
     switch (ev.keyCode){
         case 37:// left
             if(moveLeft()){
+                keyTime=false;
                 setTimeout(createNewNumber,210);
                 setTimeout(function () {
                     isGameOver();
@@ -132,6 +132,7 @@ $(document).keydown(function(e){
             break;
         case 38:// up
             if(moveUp()){
+                keyTime=false;
                 setTimeout(createNewNumber,210);
                 setTimeout(function () {
                     isGameOver();
@@ -141,6 +142,7 @@ $(document).keydown(function(e){
             break;
         case 39:// right
             if(moveRight()){
+                keyTime=false;
                 setTimeout(createNewNumber,210);
                 setTimeout(function () {
                     isGameOver();
@@ -150,6 +152,7 @@ $(document).keydown(function(e){
             break;
         case 40:// down
             if(moveDown()){
+                keyTime=false;
                 setTimeout(createNewNumber,210);
                 setTimeout(function () {
                     isGameOver();

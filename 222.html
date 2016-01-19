@@ -97,22 +97,28 @@
     function getNumberBackgroundColor(val){
         var backgroundcolor="black";
         switch(val){
-            case 0:backgroundcolor="green";break;
-            case 2:backgroundcolor="#111";break;
-            case 4:backgroundcolor="#222";break;
-            case 8:backgroundcolor="#333";break;
-            case 16:backgroundcolor="#555";break;
-            case 32:backgroundcolor="#f11";break;
-            case 64:backgroundcolor="#1c1";break;
-            case 128:backgroundcolor="#11f";break;
+            case 0:backgroundcolor="#CCC0B3";break;
+            case 2:backgroundcolor="#EEE4DA";break;
+            case 4:backgroundcolor="#EDE0C8";break;
+            case 8:backgroundcolor="#F2B179";break;
+            case 16:backgroundcolor="#F49563";break;
+            case 32:backgroundcolor="#F5794D";break;
+            case 64:backgroundcolor="#F55D37";break;
+            case 128:backgroundcolor="#EEE863";break;
+            case 256:backgroundcolor="#EDB04D";break;
+            case 512:backgroundcolor="#ECB04D";break;
+            case 1024:backgroundcolor="#EB9437";break;
+            case 2048:backgroundcolor="#EA7821";break;
+            case 4096:backgroundcolor="#Ec7821";break;
+            default :backgroundcolor="#CCC0B3";
         }
         return backgroundcolor
     }
     function getNumberFontColor(val){
-        if(val>=4){
-            return "#fff";
+        if(val>4){
+            return "#776e65";
         }
-        return "#776e65";
+        return "#111";
     }
     function nospace(borad){
         for(var i=0;i<4;i++){

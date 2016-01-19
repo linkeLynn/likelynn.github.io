@@ -3,7 +3,9 @@
  */
 var borad=[];
 var score=0;
-var hasConflicted=[];
+var hasConflicted=[]; //碰撞唯一检测
+var orientation; // 创建新数字的位置方向
+var keyTime=true;
 window.onload=newgame;
 function newgame(){
     // 初始化棋盘
@@ -66,14 +68,46 @@ function createNewNumber(){
         return false;
     }
     // 随机一个位置
-    var randomX=Math.floor(Math.random()*4);
-    var randomY=Math.floor(Math.random()*4);
-    while(true){
-        if(borad[randomX][randomY]==0){
+    //var randomX=Math.floor(Math.random()*4);
+    //var randomY=Math.floor(Math.random()*4);
+    var randomX,randomY;
+    switch (orientation){
+        case 'up':
+            randomX=3;
+            while(true){
+                randomY=Math.floor(Math.random()*4);
+                if(borad[randomX][randomY]==0){break;}
+            }
             break;
+        case 'down':
+            randomX=0;
+            while(true){
+                randomY=Math.floor(Math.random()*4);
+                if(borad[randomX][randomY]==0){break;}
+            }
+            break;
+        case 'left':
+            randomY=3;
+            while(true){
+                randomX=Math.floor(Math.random()*4);
+                if(borad[randomX][randomY]==0){break;}
+            }
+            break;
+        case  'right':
+            randomY=0;
+            while(true){
+                randomX=Math.floor(Math.random()*4);
+                if(borad[randomX][randomY]==0){break;}
+            }
+            break;
+        default :
+        while(true){
+            randomX=Math.floor(Math.random()*4);
+            randomY=Math.floor(Math.random()*4);
+            if(borad[randomX][randomY]==0){
+                break;
+            }
         }
-        randomX=Math.floor(Math.random()*4);
-        randomY=Math.floor(Math.random()*4);
     }
     //随机一个数字
     var randomNumber=Math.random()<0.8?2:4;
@@ -83,30 +117,44 @@ function createNewNumber(){
     return true;
 }
 $(document).keydown(function(e){
+    if(!keyTime){return}
+    keyTime=false;
     var ev=e||window.event;
     switch (ev.keyCode){
         case 37:// left
             if(moveLeft()){
                 setTimeout(createNewNumber,210);
-                setTimeout(isGameOver,300);
+                setTimeout(function () {
+                    isGameOver();
+                    keyTime=true;
+                },300);
             }
             break;
         case 38:// up
             if(moveUp()){
                 setTimeout(createNewNumber,210);
-                setTimeout(isGameOver,300);
+                setTimeout(function () {
+                    isGameOver();
+                    keyTime=true;
+                },300);
             }
             break;
         case 39:// right
             if(moveRight()){
                 setTimeout(createNewNumber,210);
-                setTimeout(isGameOver,300);
+                setTimeout(function () {
+                    isGameOver();
+                    keyTime=true;
+                },300);
             }
             break;
         case 40:// down
             if(moveDown()){
                 setTimeout(createNewNumber,210);
-                setTimeout(isGameOver,300);
+                setTimeout(function () {
+                    isGameOver();
+                    keyTime=true;
+                },300);
             }
             break;
         default: //default
@@ -117,6 +165,7 @@ $(document).keydown(function(e){
 });
 function isGameOver(){
     if(nospace(borad)&&nomove(borad)){
+        orientation=null;
         alert("game over!");
     }
 }
@@ -150,6 +199,7 @@ function moveLeft(){
         }
     }
     //updateNumberView();
+    orientation='left';
     setTimeout(updateNumberView,200);
     return true;
 }
@@ -186,6 +236,7 @@ function moveRight(){
         }
     }
     //updateNumberView();
+    orientation='right';
     setTimeout(updateNumberView,200);
     return true;
 }
@@ -217,6 +268,7 @@ function moveUp(){
             }
         }
     }
+    orientation='up';
     setTimeout(updateNumberView,200);
     return true;
 }
@@ -249,6 +301,7 @@ function moveDown(){
             }
         }
     }
+    orientation='down';
     setTimeout(updateNumberView,200);
     return true;
 }

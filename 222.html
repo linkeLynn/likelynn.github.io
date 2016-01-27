@@ -85,10 +85,11 @@
     <div class="grid-cell" id="grid-cell-3-3"></div>
 
 </section>
-
+<input type="text" value="0" id="btn"/>
 </body>
 <script src="js/jquery.min.js"></script>
 <script>
+$('#btn').prop("value","2");
     function getPosTop(i,k){
         return 20+120*i;
     }
@@ -221,7 +222,7 @@
             'height':'100px',
             'top':getPosTop(i,k),
             'left':getPosLeft(i,k)
-        },50)
+        },100)
     }
     function showMoveAnimation(fromx,fromy,tox,toy){
         var numbercell=$('#number-cell-'+fromx+'-'+fromy);
